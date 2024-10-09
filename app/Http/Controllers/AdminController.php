@@ -69,31 +69,25 @@ class AdminController extends Controller
             $data->price = $request->price;
             $data->quantity = $request->qty;
             $data->category= $request->category;
-            $data->save();
-
-            $image = $request->image;
-
-            $request->validate([
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ]);
 
 
-            if($image) {
-                $imagename = time().'.'.$image->getClientOriginalExtension();
-
-                $request->image->move('products', $imagename);
-
-                $data->image = $imagename;
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('products'), $imageName);
+                $data->image = $imageName;
             }
 
-            toastr()->timeOut(10000)->closeButton()->addSuccess('Product Added   Successfully');
+            $data->save();
+
+            toastr()->timeOut(10000)->closeButton()->addSuccess('Product Added Successfully');
 
             return redirect()->back();
         }
 
         public function view_product(){
 
-            $product = Product::all();
+            $product = Product::paginate(3  );
             return view('admin.view_product', compact('product'));
         }
 }

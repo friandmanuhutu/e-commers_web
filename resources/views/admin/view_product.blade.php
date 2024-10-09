@@ -61,12 +61,19 @@
                         <td>{{ $products->price }}</td>
                         <td>{{ $products->quantity }}</td>
                         <td>
-                            <img height="120" width="120" src="products/{{ $products->image }}">
+                            <img height="120" width="120" src="{{ asset('products/' . $products->image) }}" alt="{{ $products->title }}">
+
                         </td>
                     </tr>
                     @endforeach
 
                 </table>
+
+            </div>
+            <div class="div_deg">
+
+                {{ $product->onEachSide(1)->links() }}
+
             </div>
 
       </div>

@@ -70,7 +70,7 @@
 
                 <div class="input_deg">
                     <label for="">Price</label>
-                    <input type="text" name="title" id="">
+                    <input type="number" name="price" id="">
                 </div>
 
                 <div class="input_deg">
@@ -81,11 +81,11 @@
 
                 <div class="input_deg">
                     <label for="">Product Category</label>
-                    <select name="category" id="" required>
+                    <select name="category" required>
                     <option value="">Select a Option</option>
 
                         @foreach ($category as $category)
-                        <option value="$category->category_name">{{ $category->category_name }}</option>
+                        <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
                         @endforeach
 
 
@@ -94,7 +94,7 @@
 
                 <div class="input_deg">
                     <label for="">Product Image</label>
-                    <input type="file" name="image" id="">
+                    <input type="file" name="image">
                 </div>
 
                 <div class="input_deg">
