@@ -28,6 +28,6 @@
                 <input type="submit" value="Logout" />
             </form>
 
-      </div>
+        </div>
     </nav>
   </header>
