@@ -29,6 +29,13 @@
                 border: 1px solid white;
                 text-align: center;
             }
+
+            input[type="search"]{
+                width: 500px;
+                height: 50px;
+                margin-left: 50px;
+            }
+
         </style>
 
     </head>
@@ -42,6 +49,11 @@
         <div class="page-header">
           <div class="container-fluid">
 
+            <form action="{{ url('product_search') }}" method="get">
+                @csrf
+                <input type="search" name="search" id="">
+                <input type="submit" class="btn btn-secondary" value="Search">
+            </form>
 
             <div class="div_deg">
                 <table class="table_deg">
