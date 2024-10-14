@@ -10,6 +10,8 @@ use App\Models\User;
 
 use App\Models\Cart;
 
+use App\Models\Order;
+
 use Illuminate\SUpport\Facades\Auth;
 
 class HomeController extends Controller
@@ -128,5 +130,50 @@ class HomeController extends Controller
         toastr()->timeOut(10000)->closeButton()->addSuccess('Produk Berhasil Dihapus dari Daftar Keranjang');
 
         return redirect()->back();
+    }
+
+    public function comfirm_order(Request $request)
+    {
+        $name = $request->name;
+
+        $address = $request->address;
+
+        $phone = $request->phone;
+
+        $userid = Auth::user()->id;
+
+        $cart = Cart::where('user_id', $userid)->get();
+
+        foreach($cart as $carts)
+        {
+            $order = new Order;
+
+            $order->name = $name;
+
+            $order->rec_address = $address;
+
+            $order->phone = $phone;
+
+            $order->user_id = $userid;
+
+            $order->product_id = $carts->product_id;
+
+            $order->save();
+        }
+
+        $cart_remove = Cart::where('user_id', $userid)->get();
+
+        foreach($cart_remove as $remove)
+        {
+            $data = Cart::find($remove->id);
+
+            $data->delete();
+        }
+
+        toastr()->timeOut(10000)->closeButton()->addSuccess('Produk Berhasil Dipesan');
+
+        return redirect()->back();
+
+        
     }
 }
