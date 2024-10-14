@@ -37,6 +37,13 @@
             border: 1px solid skyblue;
         }
 
+        .cart_value
+        {
+            text-align: center;
+            margin-bottom: 70px;
+            padding: 18px;
+        }
+
     </style>
 
 </head>
@@ -60,6 +67,12 @@
             <th>Hapus</th>
         </tr>
 
+        <?php
+
+        $value = 0;
+
+        ?>
+
         @foreach($cart as $cart)
 
         <tr>
@@ -75,9 +88,21 @@
 
         </tr>
 
+        <?php
+
+        $value = $value + $cart->product->price;
+
+        ?>
+
         @endforeach
 
     </table>
+
+  </div>
+
+  <div class="cart_value">
+
+    <h3>Total Harga Harus Dibayar : Rp {{ $value }}</h3>
 
   </div>
   
