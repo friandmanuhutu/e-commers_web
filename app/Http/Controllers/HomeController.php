@@ -97,7 +97,7 @@ class HomeController extends Controller
 
         $data->save();
 
-        toastr()->timeOut(10000)->closeButton()->addSuccess('Product Added to the Cart Successfully');
+        toastr()->timeOut(10000)->closeButton()->addSuccess('Produk Berhasil Ditambahkan ke Keranjang');
 
         return redirect()->back();
     }
@@ -117,5 +117,16 @@ class HomeController extends Controller
         }
 
         return view('home.mycart',compact('count','cart'));
+    }
+
+    public function delete_cart($id)
+    {
+        $data = Cart::find($id);
+
+        $data->delete();
+
+        toastr()->timeOut(10000)->closeButton()->addSuccess('Produk Berhasil Dihapus dari Daftar Keranjang');
+
+        return redirect()->back();
     }
 }
