@@ -22,4 +22,10 @@
                   <li><a href="{{ url('view_product') }}">View Product</a></li>
                 </ul>
               </li>
+
+              <li>
+                <a href="{{ url('view_orders') }}"> <i class="icon-grid"></i>Pesanan</a>
+              </li>
+
+      </ul>
     </nav>
