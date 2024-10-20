@@ -10,6 +10,8 @@ use App\Models\Order;
 
 use App\Models\Product;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+
 class AdminController extends Controller
 {
     //
@@ -181,6 +183,13 @@ class AdminController extends Controller
             $data->save();
 
             return redirect('/view_orders');
+        }
+
+        public function print_pdf($id)
+        {
+            $data = Order::find($id);
+            $pdf = Pdf::loadView('admin.invoice',compact('data'));
+            return $pdf->download('invoice.pdf');
         }
 
 }

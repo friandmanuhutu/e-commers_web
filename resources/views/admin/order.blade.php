@@ -58,6 +58,7 @@
                         <th>Gambar</th>
                         <th>Status</th>
                         <th>Aksi</th>
+                        <th>Cetak PDF</th>
                     </tr>
 
                     @foreach($data as $data)
@@ -92,8 +93,13 @@
                         </td>
 
                         <td>
-                            <a class="btn btn-primary" href="{{ url('on_the_way',$data->id) }}">Dikirim</a>
-                            <a class="btn btn-success" href="{{ url('delivered',$data->id) }}">Terkirim</a>
+                            <a class="btn btn-primary" href="{{ url('on_the_way', $data->id) }}" style="width: 80px;">Dikirim</a>
+                            <a class="btn btn-success" href="{{ url('delivered', $data->id) }}" style="width: 80px;">Terkirim</a>
+
+                        </td>
+
+                        <td>
+                            <a class="btn btn-secondary" href="{{ url('print_pdf',$data->id) }}">Cetak PDF</a>
                         </td>
 
                     </tr>
