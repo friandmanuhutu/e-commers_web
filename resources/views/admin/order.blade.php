@@ -17,6 +17,8 @@
                 font-size: 18px;
                 font-weight: bold;
                 text-align: center;
+                padding-right: 0px;
+                padding-left: 0px;
             }
 
             .table_center
@@ -50,14 +52,16 @@
                     <tr>
                         <th>Nama Pembeli</th>
                         <th>Alamat</th>
-                        <th>Nomor Handphone</th>
-                        <th>Product title</th>
-                        <th>price</th>
+                        <th>Nomor HP</th>
+                        <th>Nama Produk</th>
+                        <th>Harga</th>
                         <th>Gambar</th>
                         <th>Status</th>
+                        <th>Aksi</th>
                     </tr>
 
                     @foreach($data as $data)
+                    
 
                     <tr>
                         <td>{{ $data->name }}</td>
@@ -69,7 +73,29 @@
                             <img width="150" src="products/{{ $data->product ? $data->product->image : 'Produk telah dihapus' }}">
                         </td>
 
-                        <td>{{ $data->status }}</td>
+                        <td>
+
+                            @if($data->status == 'Sedang Diproses')
+
+                            <span style="color:red">{{ $data->status }}</span>
+
+                            @elseif($data->status == 'Dikirim')
+
+                            <span style="color:skyblue;">{{ $data->status }}</span>
+
+                            @else
+
+                            <span style="color:yellow;">{{ $data->status }}</span>
+
+                            @endif
+
+                        </td>
+
+                        <td>
+                            <a class="btn btn-primary" href="{{ url('on_the_way',$data->id) }}">Dikirim</a>
+                            <a class="btn btn-success" href="{{ url('delivered',$data->id) }}">Terkirim</a>
+                        </td>
+
                     </tr>
 
                     @endforeach

@@ -98,7 +98,7 @@
 
             <div class="div_gap">
                 
-                <input class="btn btn-primary" type="submit" value="Place Order">
+                <input class="btn btn-primary" type="submit" value="Pesan Sekarang">
             </div>
 
         </form>
