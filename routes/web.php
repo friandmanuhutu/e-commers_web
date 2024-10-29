@@ -73,6 +73,13 @@ route::get('delete_cart/{id}',[HomeController::class,'delete_cart'])->middleware
 
 route::post('comfirm_order',[HomeController::class,'comfirm_order'])->middleware(['auth', 'verified']);
 
+route::get('shop',[HomeController::class,'shop']);
+
+route::get('why',[HomeController::class,'why']);
+
+route::get('testimonial',[HomeController::class,'testimonial']);
+
+route::get('contact',[HomeController::class,'contact']);
 
 Route::controller(HomeController::class)->group(function(){
 

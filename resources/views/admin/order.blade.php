@@ -46,7 +46,13 @@
         <div class="page-header">
           <div class="container-fluid">
 
+            <h3>Semua Pesanan</h3>
+                <br>
+                
+
             <div class="table_center">
+
+                
 
                 <table>
                     <tr>
@@ -56,6 +62,7 @@
                         <th>Nama Produk</th>
                         <th>Harga</th>
                         <th>Gambar</th>
+                        <th>Status Pembayaran</th>
                         <th>Status</th>
                         <th>Aksi</th>
                         <th>Cetak PDF</th>
@@ -73,6 +80,8 @@
                         <td>
                             <img width="150" src="products/{{ $data->product ? $data->product->image : 'Produk telah dihapus' }}">
                         </td>
+
+                        <td>{{ $data->payment_status }}</td>
 
                         <td>
 
