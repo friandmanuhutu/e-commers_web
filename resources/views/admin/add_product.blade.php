@@ -60,7 +60,7 @@
 
                 <div class="input_deg">
                     <label for="">Product Title</label>
-                    <input type="text" name="title" id="">
+                    <input type="text" name="title" id="" required>
                 </div>
 
                 <div class="input_deg">
@@ -70,12 +70,12 @@
 
                 <div class="input_deg">
                     <label for="">Price</label>
-                    <input type="number" name="price" id="">
+                    <input type="number" name="price" id="" required>
                 </div>
 
                 <div class="input_deg">
                     <label for="">Quantity</label>
-                    <input type="number" name="qty" id="">
+                    <input type="number" name="qty" id="" required>
                 </div>
 
 
@@ -94,7 +94,7 @@
 
                 <div class="input_deg">
                     <label for="">Product Image</label>
-                    <input type="file" name="image">
+                    <input type="file" name="image" required>
                 </div>
 
                 <div class="input_deg">

@@ -20,7 +20,7 @@
 
     
 
-    <h1>Laravel Ecommerce Payment System</h1>
+    <h1 style="text-align: center">Ecommerce Payment System</h1>
 
     
 
