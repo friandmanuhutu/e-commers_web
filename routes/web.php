@@ -73,6 +73,16 @@ route::get('delete_cart/{id}',[HomeController::class,'delete_cart'])->middleware
 
 route::post('comfirm_order',[HomeController::class,'comfirm_order'])->middleware(['auth', 'verified']);
 
+
+Route::controller(HomeController::class)->group(function(){
+
+    Route::get('stripe/{value}', 'stripe');
+
+    Route::post('stripe/{value}', 'stripePost')->name('stripe.post');
+
+});
+
+
 route::get('view_orders',[AdminController::class,'view_order'])->middleware(['auth', 'admin']);
  
 route::get('on_the_way/{id}',[AdminController::class,'on_the_way'])->middleware(['auth', 'admin']);
