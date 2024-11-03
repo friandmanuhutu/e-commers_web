@@ -4,39 +4,43 @@
         @include('admin.css')
 
         <style type="text/css">
-
             input[type="text"] {
                 width: 400px;
                 height: 50px;
-
             }
-
+        
             .div_deg {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 margin: 30px;
             }
-
-            .table_deg{
+        
+            .table_deg {
                 text-align: center;
                 margin: auto;
-                border: 2px solid yellowgreen;
+                border: 1px solid white;
                 margin-top: 50px;
+                border-collapse: separate;
+                border-spacing: 5px; /* Menambahkan jarak antar sel */
             }
-
+        
             th {
-                background-color: blue;
+                background-color: #C63C51;
                 padding: 15px;
                 font-size: 20px;
                 font-weight: bold;
                 color: white;
+                border: 2px solid white; /* Garis putih pada setiap header */
             }
+        
             td {
                 color: white;
                 padding: 10px;
+                border: 2px solid white; /* Garis putih pada setiap kotak data */
             }
         </style>
+        
 
     </head>
 

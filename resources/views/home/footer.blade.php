@@ -24,7 +24,7 @@
               ABOUT US
             </h6>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
+                Ecommerce adalah platform yang menghadirkan produk pilihan berkualitas dari berbagai kategori. Kami berkomitmen untuk memberikan pengalaman belanja online yang mudah, aman, dan cepat.
             </p>
           </div>
           <div class="col-md-6 col-lg-3">
@@ -45,7 +45,7 @@
               NEED HELP
             </h6>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
+                Kami siap membantu Anda! Jika ada pertanyaan atau kendala dalam berbelanja, tim layanan pelanggan kami tersedia untuk mendukung Anda
             </p>
           </div>
           <div class="col-md-6 col-lg-3">
@@ -55,7 +55,7 @@
             <div class="info_link-box">
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span> Gb road 123 london Uk </span>
+                <span> Telkom University Surabaya </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
@@ -63,7 +63,7 @@
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span> demo@gmail.com</span>
+                <span> Ecommerce@gmail.com</span>
               </a>
             </div>
           </div>
@@ -75,7 +75,7 @@
       <div class="container">
         <p>
           &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Web Tech Knowledge</a>
+          <a href="https://html.design/">Telkom University Surabaya</a>
         </p>
       </div>
     </footer>

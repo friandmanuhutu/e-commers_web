@@ -69,7 +69,7 @@ body {
 
 #navbarSupportedContent {
   width: 100%;
-  background-color: skyblue;
+  background-color: #3DC2EC;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -274,9 +274,9 @@ a:focus {
 .slider_section .detail-box a {
   display: inline-block;
   padding: 10px 40px;
-  background-color: #db4566;
-  color: #ffffff;
-  border: 1px solid #db4566;
+  background-color: #3DC2EC;
+  color: #fff;
+  /* border: 1px solid #3DC2EC; */
   border-radius: 5px;
   -webkit-transition: all .3s;
   transition: all .3s;
@@ -285,8 +285,8 @@ a:focus {
 }
 
 .slider_section .detail-box a:hover {
-  background-color: transparent;
-  color: #db4566;
+  background-color: #777;
+  color: #fff;
 }
 
 .slider_section .carousel_btn-box {
@@ -347,6 +347,8 @@ a:focus {
           align-items: center;
   padding: 15px 30px;
   height: 245px;
+  border-bottom: 1px solid #dddddd; /* Garis pemisah untuk foto */
+  margin-bottom: 15px;
 }
 
 .shop_section .box .img-box img {
@@ -361,11 +363,26 @@ a:focus {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+          
+}
+.shop_section .box .detail-box .title1 h6 {
+  font-weight: bold;
+}
+.shop_section .box .detail-box .btn1  {
+  padding: 10px;
+  color: white;
+  background-color: #3DC2EC;
+  border-radius: 5px;
+  
+}
+.shop_section .box .detail-box .btn1:hover  {
+ background-color: #777;
+ color: white;
 }
 
-.shop_section .box .detail-box h6 span {
-  color: #db4f66;
-}
+/* .shop_section .box .detail-box h6 span {
+  color: #;
+} */
 
 .shop_section .box .new {
   width: 50px;
@@ -400,13 +417,38 @@ a:focus {
 .shop_section .btn-box a {
   display: inline-block;
   padding: 10px 40px;
-  background-color: #f16179;
+  background-color: #3DC2EC;
   color: #ffffff;
   border: 1px solid #f16179;
   border-radius: 5px;
   -webkit-transition: all .3s;
   transition: all .3s;
 }
+
+.shop_section .box .detail-section a{
+    color:white; 
+    background-color:#3DC2EC;
+    padding:10px;
+    border-radius:5px; 
+    margin-left:7px;
+}
+
+.shop_section .box .detail-section a:hover{
+    background-color: #777;
+}
+
+.shop_section .box .detail-box1 {
+    text-align: center;
+    /* color: #ffffff */
+}
+.shop_section .box .detail-box1 h6 {
+    font-weight: bold;
+}
+.shop_section .box .detail-box2  {
+    margin-top: 10px;
+    text-align: center;
+}
+
 
 .shop_section .btn-box a:hover {
   background-color: transparent;

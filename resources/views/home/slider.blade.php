@@ -13,11 +13,13 @@
                       Website
                     </h1>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pellentesque mauris leo, vitae ultricies ligula convallis in. Curabitur venenatis lacus nulla, elementum sollicitudin felis aliquam vitae. Sed non lacus id metus tincidunt egestas ut eget tortor. Ut in lectus ante. Sed consectetur, lorem sed consequat luctus,
+                        Kami adalah platform e-commerce terpercaya yang menyediakan beragam produk pilihan dari kategori terbaik, mulai dari fashion, elektronik, hingga kebutuhan sehari-hari. Dengan komitmen pada kualitas dan kepuasan pelanggan, kami hadir untuk memberikan pengalaman berbelanja yang mudah, aman, dan nyaman.
                     </p>
-                    <a href="">
-                      Contact Us
-                    </a>
+                    <b>
+                        <a href="">
+                            Contact Us
+                          </a>
+                    </b>
                   </div>
                 </div>
                 <div class="col-md-5 ">

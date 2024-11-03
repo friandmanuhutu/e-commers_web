@@ -4,37 +4,42 @@
         @include('admin.css')
 
         <style>
-            table
-            {
-                border: 2px solid skyblue;
+
+            h3 {
+                color: white;
+            }
+            table {
+                border-collapse: separate;
+                border-spacing: 5px; /* Menambahkan jarak antar sel */
+                border: 2px solid white;
                 text-align: center;
             }
 
-            th
-            {
-                background-color: skyblue;
+            th {
+                background-color: #C63C51;
                 padding: 10px;
                 font-size: 18px;
                 font-weight: bold;
                 text-align: center;
-                padding-right: 0px;
-                padding-left: 0px;
+                /* padding-right: 0px;
+                padding-left: 0px; */
+                /* border: 1px solid white; Menambahkan garis pada header */
             }
 
-            .table_center
-            {
+            .table_center {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                color: white;
             }
 
-            td
-            {
+            td {
                 color: white;
                 padding: 15px;
-                border: 1px solid skyblue;
+                border: 2px solid white; /* Menambahkan garis pada setiap kotak */
             }
         </style>
+
     </head>
 
   <body>
@@ -48,11 +53,11 @@
 
             <h3>Semua Pesanan</h3>
                 <br>
-                
+
 
             <div class="table_center">
 
-                
+
 
                 <table>
                     <tr>
@@ -69,7 +74,7 @@
                     </tr>
 
                     @foreach($data as $data)
-                    
+
 
                     <tr>
                         <td>{{ $data->name }}</td>
@@ -91,11 +96,11 @@
 
                             @elseif($data->status == 'Dikirim')
 
-                            <span style="color:skyblue;">{{ $data->status }}</span>
+                            <span style="color:blue;">{{ $data->status }}</span>
 
                             @else
 
-                            <span style="color:yellow;">{{ $data->status }}</span>
+                            <span style="color:green;">{{ $data->status }}</span>
 
                             @endif
 

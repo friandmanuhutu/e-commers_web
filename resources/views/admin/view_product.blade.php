@@ -10,33 +10,38 @@
                 align-items: center;
                 margin-top: 60px;
             }
-
+        
             .table_deg {
-                border: 2px solid wheat;
+                border: 2px solid white;
+                border-collapse: separate;
+                border-spacing: 5px; /* Menambahkan jarak antar sel */
+                text-align: center;
             }
-
+        
             th {
-                background-color: blue;
+                background-color: #C63C51;
                 text-align: center;
                 color: white;
                 font-size: 19px;
                 font-weight: bold;
                 padding: 15px;
-                border: 1px solid white;
+                border: 2px solid white; /* Menambahkan garis pada setiap header */
             }
-
+        
             td {
-                border: 1px solid white;
+                border: 1px solid white; /* Menambahkan garis pada setiap kotak data */
+                color: white;
+                padding: 15px;
                 text-align: center;
             }
-
-            input[type="search"]{
+        
+            input[type="search"] {
                 width: 500px;
                 height: 50px;
                 margin-left: 50px;
             }
-
         </style>
+        
 
     </head>
 

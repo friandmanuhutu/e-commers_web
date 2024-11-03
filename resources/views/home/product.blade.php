@@ -15,18 +15,19 @@
               <div class="img-box">
                 <img src="products/{{$products->image}}" alt="">
               </div>
-              <div class="detail-box">
+              <div class="detail-box1">
                 <h6>{{$products->title}}</h6>
+              </div>
+              <div class="detail-box2">
                 <h6>
-                  Price
-                  <span>{{$products->price}}</span>
-                </h6>
+                    Rp.<span>{{$products->price}}</span>
+                  </h6>
               </div>
               
-              <div style="padding:15px">
-                <a class = "btn btn-danger" href="{{ url('product_details',$products->id) }}">Details</a>
+              <div class="detail-section" style="padding:15px">
+                <a  href="{{ url('product_details',$products->id) }}">Details</a>
               
-                <a class="btn btn-primary" href="{{ url('add_cart',$products->id) }}">Add to Cart</a>
+                <a  href="{{ url('add_cart',$products->id) }}">Add to Cart</a>
               </div>
             
           </div>

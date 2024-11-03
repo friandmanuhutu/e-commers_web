@@ -55,17 +55,18 @@
               
 
               <div class="detail-box">
-                <h6>{{$data->title}}</h6>
+                <div class="title1">
+                    <h6>{{$data->title}}</h6>
+                </div>
                 <h6>
-                  Price
-                  <span>{{$data->price}}</span>
+                  Rp.<span>{{$data->price}}</span>
                 </h6>
               </div>
               
               <div class="detail-box">
                 <h6>Kategori : {{$data->category}}</h6>
                 <h6>
-                  Stok yang Tersedia
+                  Stok yang Tersedia :
                   <span>{{$data->quantity}}</span>
                 </h6>
               </div>
@@ -77,8 +78,10 @@
               </div>
 
               <div class="detail-box">
-                
-                <a class="btn btn-primary" href="{{ url('add_cart',$data->id) }}">Add to Cart</a>
+                <div>
+
+                    <a class="btn1" href="{{ url('add_cart',$data->id) }}">Add to Cart</a>
+                </div>
               
             </div>
             
