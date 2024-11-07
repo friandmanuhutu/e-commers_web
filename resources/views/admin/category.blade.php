@@ -8,14 +8,14 @@
                 width: 400px;
                 height: 50px;
             }
-        
+
             .div_deg {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 margin: 30px;
             }
-        
+
             .table_deg {
                 text-align: center;
                 margin: auto;
@@ -24,7 +24,7 @@
                 border-collapse: separate;
                 border-spacing: 5px; /* Menambahkan jarak antar sel */
             }
-        
+
             th {
                 background-color: #C63C51;
                 padding: 15px;
@@ -33,14 +33,28 @@
                 color: white;
                 border: 2px solid white; /* Garis putih pada setiap header */
             }
-        
+
+            .category {
+                padding: 10px 10px 10px 10px;
+                color: white;
+                background-color: blue;
+                border-radius: 5px;
+                text-decoration: none;
+            }
+
+            .category:hover {
+                color: white;
+                background-color: rgb(8, 8, 164);
+                text-decoration: none;
+            }
+
             td {
                 color: white;
                 padding: 10px;
                 border: 2px solid white; /* Garis putih pada setiap kotak data */
             }
         </style>
-        
+
 
     </head>
 
@@ -82,7 +96,7 @@
                 <td>{{ $data->category_name }}</td>
 
                 <td>
-                    <a class="btn btn-success" href="{{ url('edit_category',$data->id )}}">Edit</a>
+                    <a class="category" href="{{ url('edit_category',$data->id )}}">Edit</a>
                 </td>
 
                 <td>

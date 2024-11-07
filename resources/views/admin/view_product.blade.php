@@ -10,14 +10,14 @@
                 align-items: center;
                 margin-top: 60px;
             }
-        
+
             .table_deg {
                 border: 2px solid white;
                 border-collapse: separate;
                 border-spacing: 5px; /* Menambahkan jarak antar sel */
                 text-align: center;
             }
-        
+
             th {
                 background-color: #C63C51;
                 text-align: center;
@@ -27,21 +27,35 @@
                 padding: 15px;
                 border: 2px solid white; /* Menambahkan garis pada setiap header */
             }
-        
+
             td {
                 border: 1px solid white; /* Menambahkan garis pada setiap kotak data */
                 color: white;
                 padding: 15px;
                 text-align: center;
             }
-        
+
+            .view_category{
+                padding: 10px 10px 10px 10px;
+                color: white;
+                background-color: blue;
+                border-radius: 5px;
+                text-decoration: none;
+            }
+
+            .view_category:hover {
+                color: white;
+                background-color: rgb(8, 8, 164);
+                text-decoration: none;
+            }
+
             input[type="search"] {
                 width: 500px;
                 height: 50px;
                 margin-left: 50px;
             }
         </style>
-        
+
 
     </head>
 
@@ -85,7 +99,7 @@
                         </td>
 
                         <td>
-                            <a class="btn btn-success" href="{{ url('update_product',$products->id )}}">Edit</a>
+                            <a class="view_category" href="{{ url('update_product',$products->id )}}">Edit</a>
                         </td>
 
                         <td>

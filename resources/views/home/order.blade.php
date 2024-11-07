@@ -9,7 +9,7 @@
     @include('home.css')
 
     <style>
-        
+
         .div_center
         {
             display: flex;
@@ -20,16 +20,17 @@
 
         table
         {
-            border: 2px solid black;
+            border: 2px solid #3DC2EC;
             text-align: center;
             width: 800px;
+
         }
 
         /* mungkin untuk garis atas */
         th
         {
-            border: 2px solid skyblue;
-            background-color: black;
+            border: 2px solid #3DC2EC;
+            background-color: #3DC2EC;
             color: white;
             font-size: 19px;
             font-weight: bold;
@@ -39,8 +40,15 @@
         /* untuk garis border */
         td
         {
-            border: 1px solid skyblue;
+            border: 1px solid #3DC2EC;
             pad: 10px;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+        .status1 {
+            font-weight: 500;
         }
 
     </style>
@@ -63,9 +71,9 @@
                 @foreach($order as $order)
 
                 <tr>
-                    <td>{{ $order->product->title }}</td>
+                    <td class="status1">{{ $order->product->title }}</td>
                     <td>{{ $order->product->price }}</td>
-                    <td>{{ $order->status }}</td>
+                    <td class="status">{{ $order->status }}</td>
                     <td>
                         <img height="150" width="200" src="products/{{ $order->product->image }}">
                     </td>

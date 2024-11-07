@@ -13,11 +13,11 @@
     @include('home.header')
     <!-- end header section -->
 
-    
+
 <section class="contact_section ">
   <div class="container px-0">
     <div class="heading_container ">
-      <h2 class="">
+      <h2 class="contactus">
         Contact Us
       </h2>
     </div>
@@ -46,7 +46,7 @@
             <input type="text" class="message-box" placeholder="Message" />
           </div>
           <div class="d-flex ">
-            <button>
+            <button ">
               SEND
             </button>
           </div>

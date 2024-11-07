@@ -7,7 +7,7 @@ body {
 }
 
 .layout_padding {
-  padding-top: 90px;
+  padding-top: 50px;
   padding-bottom: 90px;
 }
 
@@ -363,7 +363,7 @@ a:focus {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-          
+
 }
 .shop_section .box .detail-box .title1 h6 {
   font-weight: bold;
@@ -373,7 +373,7 @@ a:focus {
   color: white;
   background-color: #3DC2EC;
   border-radius: 5px;
-  
+
 }
 .shop_section .box .detail-box .btn1:hover  {
  background-color: #777;
@@ -426,10 +426,10 @@ a:focus {
 }
 
 .shop_section .box .detail-section a{
-    color:white; 
+    color:white;
     background-color:#3DC2EC;
     padding:10px;
-    border-radius:5px; 
+    border-radius:5px;
     margin-left:7px;
 }
 
@@ -634,6 +634,11 @@ a:focus {
   color: #9242dd;
 }
 
+.contactus {
+    text-align: center;
+    margin-top: 30px;
+}
+
 .contact_section {
   position: relative;
 }
@@ -691,21 +696,22 @@ a:focus {
 
 .contact_section button {
   display: inline-block;
-  padding: 12px 45px;
-  background-color: #db4f66;
+  padding: 12px 200px;
+  background-color: #3DC2EC;
   color: #ffffff;
-  border: 1px solid #db4f66;
-  border-radius: 0;
+  border: 0.5px solid #3DC2EC;
+  border-radius: 5px;
+  font-weight: bold;
   -webkit-transition: all .3s;
   transition: all .3s;
   display: block;
   color: #fff;
-  margin: 35px auto 0 auto;
+  margin: 10px auto 0 auto;
 }
 
 .contact_section button:hover {
-  background-color: transparent;
-  color: #db4f66;
+    color: #fff;
+    background-color: #777;
 }
 
 .contact_section .map_container {
@@ -761,7 +767,7 @@ a:focus {
 .client_section .carousel-control-next {
   width: 45px;
   height: 125px;
-  background-color: #db4f66;
+  background-color: #3DC2EC;
   opacity: 1;
   font-size: 28px;
   font-weight: bold;

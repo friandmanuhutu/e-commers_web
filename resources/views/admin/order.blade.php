@@ -33,6 +33,59 @@
                 color: white;
             }
 
+            .action a {
+                color: white;
+                background-color: #777;
+                margin: 5px;
+                border-radius: 5px;
+            }
+            .action a:hover {
+                text-decoration: none;
+                background-color: #444;
+                color: white;
+            }
+
+            .cetak {
+                color: white;
+                background-color: #777;
+                margin: 5px;
+                border-radius: 7px;
+                padding: 9px;
+                font-weight: bold;
+            }
+
+            .cetak:hover{
+                color: white;
+                background-color: #444;
+                text-decoration: none;
+            }
+
+            .status .red {
+                color: white;
+                background-color: rgb(156, 156, 8);
+                margin: 5px;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+            .status .blue {
+                color: white;
+                background-color: blue;
+                margin: 5px;
+                border-radius: 5px;
+                font-weight: bold;
+                padding: 7px;
+            }
+
+            .status .green {
+                color: white;
+                background-color: green;
+                margin: 5px;
+                border-radius: 5px;
+                font-weight: bold;
+                padding: 7px;
+            }
+
+
             td {
                 color: white;
                 padding: 15px;
@@ -88,32 +141,32 @@
 
                         <td>{{ $data->payment_status }}</td>
 
-                        <td>
+                        <td class="status" >
 
                             @if($data->status == 'Sedang Diproses')
 
-                            <span style="color:red">{{ $data->status }}</span>
+                            <span class="red">{{ $data->status }}</span>
 
                             @elseif($data->status == 'Dikirim')
 
-                            <span style="color:blue;">{{ $data->status }}</span>
+                            <span class="blue">{{ $data->status }}</span>
 
                             @else
 
-                            <span style="color:green;">{{ $data->status }}</span>
+                            <span class="green">{{ $data->status }}</span>
 
                             @endif
 
                         </td>
 
-                        <td>
-                            <a class="btn btn-primary" href="{{ url('on_the_way', $data->id) }}" style="width: 80px;">Dikirim</a>
-                            <a class="btn btn-success" href="{{ url('delivered', $data->id) }}" style="width: 80px;">Terkirim</a>
+                        <td class="action">
+                            <a  href="{{ url('on_the_way', $data->id) }}" style="width: 80px;">Dikirim</a>
+                            <a  href="{{ url('delivered', $data->id) }}" style="width: 80px;">Terkirim</a>
 
                         </td>
 
                         <td>
-                            <a class="btn btn-secondary" href="{{ url('print_pdf',$data->id) }}">Cetak PDF</a>
+                            <a class="cetak" href="{{ url('print_pdf',$data->id) }}">Invoice</a>
                         </td>
 
                     </tr>
