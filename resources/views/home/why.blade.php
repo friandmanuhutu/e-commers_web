@@ -17,7 +17,7 @@
         <div class="container">
           <div class="heading_container heading_center">
             <h2>
-              Why Shop With Us
+              Keunggulan Kami
             </h2>
           </div>
           <div class="row">
@@ -112,10 +112,10 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Fast Delivery
+                    Pengiriman Cepat
                   </h5>
                   <p>
-                    variations of passages of Lorem Ipsum available
+                    Pengiriman cepat yang menjamin pesanan Anda tiba dengan aman dan tepat waktu
                   </p>
                 </div>
               </div>
@@ -227,10 +227,10 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Free Shiping
+                    Gratis Ongkir
                   </h5>
                   <p>
-                    variations of passages of Lorem Ipsum available
+                    Manfaatkan layanan gratis ongkir untuk pengalaman belanja lebih hemat tanpa biaya pengiriman
                   </p>
                 </div>
               </div>
@@ -248,10 +248,10 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Best Quality
+                    Kualitas Terbaik
                   </h5>
                   <p>
-                    variations of passages of Lorem Ipsum available
+                    menghadirkan produk dengan kualitas terbaik yang terjamin, demi kepuasan dan kepercayaan Anda
                   </p>
                 </div>
               </div>
@@ -269,3 +269,6 @@
 </body>
 
 </html>
+
+
+
