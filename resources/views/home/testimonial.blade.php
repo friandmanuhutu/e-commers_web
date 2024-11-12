@@ -33,13 +33,13 @@
                     Morijorch
                   </h5>
                   <h6>
-                    Default model text
+                    Saya Sangat Puas
                   </h6>
                 </div>
                 <i class="fa fa-quote-left" aria-hidden="true"></i>
               </div>
               <p>
-                editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Variouseditors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Variouseditors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various
+                Pengalaman belanja yang sangat menyenangkan! Pengiriman cepat dan produk sesuai dengan yang diharapkan. Suka banget dengan layanan gratis ongkirnya juga!
               </p>
             </div>
           </div>
@@ -51,13 +51,13 @@
                     Rochak
                   </h5>
                   <h6>
-                    Default model text
+                    Keren
                   </h6>
                 </div>
                 <i class="fa fa-quote-left" aria-hidden="true"></i>
               </div>
               <p>
-                Variouseditors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Variouseditors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+                Website ini benar-benar memudahkan saya dalam mencari produk berkualitas. Layanan pelanggan responsif, pengiriman tepat waktu, dan banyak promo menarik. Terima kasih
               </p>
             </div>
           </div>
@@ -69,13 +69,31 @@
                     Brad Johns
                   </h5>
                   <h6>
-                    Default model text
+                    Sangat Rekomendasi
                   </h6>
                 </div>
                 <i class="fa fa-quote-left" aria-hidden="true"></i>
               </div>
               <p>
-                Variouseditors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy, editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Variouseditors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various
+                Saya terkesan dengan pilihan produk yang lengkap dan kualitasnya yang sangat baik. Fitur-fitur di platform ini juga sangat user-friendly, membuat belanja jadi nyaman!
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="box">
+              <div class="client_info">
+                <div class="client_name">
+                  <h5>
+                    Rakabuming Raka
+                  </h5>
+                  <h6>
+                    Sangat Bermanfaat
+                  </h6>
+                </div>
+                <i class="fa fa-quote-left" aria-hidden="true"></i>
+              </div>
+              <p>
+                Belanja di sini tidak pernah mengecewakan. Produk cepat sampai, sesuai deskripsi, dan harga bersaing. Saya sudah jadi pelanggan setia!
               </p>
             </div>
           </div>
