@@ -37,6 +37,17 @@
                 padding: 15px;
             }
 
+            .custom-btn {
+            background-color: blue; /* Warna biru */
+            color: white !important; /* Warna teks */
+            border: none;
+            }
+
+            /* Warna saat di-hover */
+            .custom-btn:hover {
+            background-color:  rgb(8, 8, 164); /* Warna ungu */
+            }
+
         </style>
     </head>
 
@@ -98,7 +109,7 @@
                 </div>
 
                 <div class="input_deg">
-                    <input type="submit" class="btn btn-success" value="Add Product">
+                    <input type="submit" class="btn custom-btn" value="Add Product">
                 </div>
 
             </form>

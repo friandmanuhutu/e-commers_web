@@ -75,10 +75,10 @@
         @csrf
 
         <div>
-            <input type="text" name="category">
-
-            <input class="btn btn-primary" type="submit" value="Add Category">
+            <input type="text" name="category" id="categoryInput" oninput="checkInput()">
+            <input class="btn btn-primary" type="submit" value="Add Category" id="addCategoryBtn" disabled>
         </div>
+        
 
     </form>
     </div>
@@ -112,7 +112,25 @@
       </div>
     </div>
 
+
+
     @include('admin.js')
+
+    <script>
+        function checkInput() {
+            // Ambil elemen input dan tombol
+            const categoryInput = document.getElementById('categoryInput');
+            const addCategoryBtn = document.getElementById('addCategoryBtn');
+            
+            // Cek apakah input kosong atau tidak
+            if (categoryInput.value.trim() === '') {
+                addCategoryBtn.disabled = true; // Nonaktifkan tombol jika input kosong
+            } else {
+                addCategoryBtn.disabled = false; // Aktifkan tombol jika input terisi
+            }
+        }
+    </script>
+    
 
   </body>
 </html>

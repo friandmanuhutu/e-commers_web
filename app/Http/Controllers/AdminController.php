@@ -15,24 +15,33 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class AdminController extends Controller
 {
     //
-    public function view_category(){
+        public function view_category()
+        {
 
         $data = Category::all();
 
         return view('admin.category', compact('data'));
-    }
-
-    public function add_category(Request $request){
-        $category = new Category;
-
-        $category->category_name = $request->category;
-
-        $category->save();
-
-        toastr()->timeOut(10000)->closeButton()->addSuccess('Category Added Successfully');
-
-        return redirect()->back();
         }
+
+        public function add_category(Request $request)
+        {
+            // Tambahkan validasi untuk memastikan kolom kategori tidak kosong
+            $request->validate([
+                'category' => 'required|string|max:255',
+            ], [
+                'category.required' => 'Kolom kategori harus diisi.',
+            ]);
+
+            // Jika validasi lolos, lanjutkan dengan penyimpanan data
+            $category = new Category;
+            $category->category_name = $request->category;
+            $category->save();
+
+            toastr()->timeOut(10000)->closeButton()->addSuccess('Category Added Successfully');
+
+            return redirect()->back();
+        }
+
 
         public function delete_category($id){
             $data = Category::find($id);
