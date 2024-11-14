@@ -19,7 +19,7 @@
     <div class="info_container ">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 col-lg-3">
+          <div class="col-md-6 col-lg-4 offset-lg-1">
             <h6>
               ABOUT US
             </h6>
@@ -27,19 +27,7 @@
                 Ecommerce adalah platform yang menghadirkan produk pilihan berkualitas dari berbagai kategori. Kami berkomitmen untuk memberikan pengalaman belanja online yang mudah, aman, dan cepat.
             </p>
           </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="info_form ">
-              <h5>
-                Newsletter
-              </h5>
-              <form action="#">
-                <input type="email" placeholder="Enter your email">
-                <button>
-                  Subscribe
-                </button>
-              </form>
-            </div>
-          </div>
+          
           <div class="col-md-6 col-lg-3">
             <h6>
               NEED HELP
