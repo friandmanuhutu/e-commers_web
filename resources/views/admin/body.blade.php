@@ -13,7 +13,7 @@
                     <div class="number dashtext-1">{{ $user }}</div>
                   </div>
                   <div class="progress progress-template">
-                    <div role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
+                    <div role="progressbar" style="width: 0%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
                   </div>
                 </div>
               </div>
@@ -26,7 +26,7 @@
                     <div class="number dashtext-2">{{ $product }}</div>
                   </div>
                   <div class="progress progress-template">
-                    <div role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-2"></div>
+                    <div role="progressbar" style="width: 0%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-2"></div>
                   </div>
                 </div>
               </div>
@@ -39,7 +39,7 @@
                     <div class="number dashtext-3">{{ $order }}</div>
                   </div>
                   <div class="progress progress-template">
-                    <div role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-3"></div>
+                    <div role="progressbar" style="width: 0%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-3"></div>
                   </div>
                 </div>
               </div>
@@ -52,7 +52,7 @@
                     <div class="number dashtext-4">{{ $deliverd }}</div>
                   </div>
                   <div class="progress progress-template">
-                    <div role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-4"></div>
+                    <div role="progressbar" style="width: 0%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-4"></div>
                   </div>
                 </div>
               </div>
