@@ -32,7 +32,6 @@
             border: 2px solid #3DC2EC;
             background-color: #3DC2EC;
             color: white;
-            font-size: 19px;
             font-weight: bold;
             text-align: center;
         }

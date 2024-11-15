@@ -22,6 +22,8 @@
 
     <h1 style="text-align: center">Ecommerce Payment System</h1>
 
+    <br>
+
     
 
     <div class="row">
@@ -32,7 +34,7 @@
 
                 <div class="panel-heading display-table" >
 
-                        <h3 class="panel-title" >Payment Details</h3>
+                        <h5 class="panel-title" >Detail Pembayaran</h5>
 
                         <h4>Anda Harus Membayar Sejumlah Rp{{ $value }}</h4>
 

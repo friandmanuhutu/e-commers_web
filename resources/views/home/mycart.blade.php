@@ -17,19 +17,19 @@
 
         table
         {
-            border: 2px solid black;
+            border: 2px solid #3DC2EC;
             text-align: center;
             width: 800px;
         }
 
         th
         {
-            border: 2px solid black;
+            border: 2px solid #3DC2EC;
             text-align: center;
             color: white;
             font: 20px;
             font-weight: bold;
-            background-color: black;
+            background-color: #3DC2EC;
         }
 
         td
