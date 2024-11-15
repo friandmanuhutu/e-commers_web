@@ -80,7 +80,7 @@
               <div class="detail-box">
                 <div>
 
-                    <a class="btn1" href="{{ url('add_cart',$data->id) }}">Add to Cart</a>
+                    <a class="btn1" href="{{ url('add_cart',$data->id) }}">Beli Produk</a>
                 </div>
               
             </div>

@@ -2,7 +2,7 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Latest Products
+          Produk Terbaru
         </h2>
       </div>
       <div class="row">
@@ -24,10 +24,10 @@
                   </h6>
               </div>
               
-              <div class="detail-section" style="padding:15px">
-                <a  href="{{ url('product_details',$products->id) }}">Details</a>
+              <div class="detail-section" style="padding:20px">
+                <a  href="{{ url('product_details',$products->id) }}">Detail</a>
               
-                <a  href="{{ url('add_cart',$products->id) }}">Add to Cart</a>
+                <a  href="{{ url('add_cart',$products->id) }}">Beli Produk</a>
               </div>
             
           </div>

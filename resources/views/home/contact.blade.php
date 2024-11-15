@@ -47,7 +47,7 @@
           </div>
           <div class="d-flex ">
             <button ">
-              SEND
+              KIRIM
             </button>
           </div>
         </form>
