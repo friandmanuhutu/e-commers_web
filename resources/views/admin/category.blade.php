@@ -67,7 +67,7 @@
         <div class="page-header">
           <div class="container-fluid">
 
-            <h1 style="color: #fff">ADD CATEGORY</h1>
+            <h1 style="color: #fff; font-size: 35px;">TAMBAH KATEGORI</h1>
 
     <div class="div_deg">
     <form action="{{ url('add_category') }}" method="post">
@@ -76,7 +76,7 @@
 
         <div>
             <input type="text" name="category" id="categoryInput" oninput="checkInput()">
-            <input class="btn btn-primary" type="submit" value="Add Category" id="addCategoryBtn" disabled>
+            <input class="btn btn-primary" type="submit" value="Tambahkan" id="addCategoryBtn" disabled>
         </div>
         
 
@@ -86,7 +86,7 @@
     <div>
         <table class="table_deg">
             <tr>
-                <th>Category Name</th>
+                <th>Nama Kategori</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>

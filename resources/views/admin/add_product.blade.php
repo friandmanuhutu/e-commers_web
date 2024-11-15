@@ -14,6 +14,7 @@
 
             h1 {
                 color: #fff;
+                font-size: 35px;
             }
 
             label {
@@ -61,7 +62,7 @@
           <div class="container-fluid">
 
 
-            <h1>ADD PRODUCT</h1>
+            <h1>TAMBAH PRODUK</h1>
 
         <div class="div_deg">
 
@@ -70,28 +71,28 @@
                 @csrf
 
                 <div class="input_deg">
-                    <label for="">Product Title</label>
+                    <label for="">Judul Produk</label>
                     <input type="text" name="title" id="" required>
                 </div>
 
                 <div class="input_deg">
-                    <label for="">Description</label>
+                    <label for="">Deskripsi</label>
                     <textarea name="description" required ></textarea>
                 </div>
 
                 <div class="input_deg">
-                    <label for="">Price</label>
+                    <label for="">Harga</label>
                     <input type="number" name="price" id="" required>
                 </div>
 
                 <div class="input_deg">
-                    <label for="">Quantity</label>
+                    <label for="">Stok</label>
                     <input type="number" name="qty" id="" required>
                 </div>
 
 
                 <div class="input_deg">
-                    <label for="">Product Category</label>
+                    <label for="">Produk Kategori</label>
                     <select name="category" required>
                     <option value="">Select a Option</option>
 
@@ -104,12 +105,12 @@
                 </div>
 
                 <div class="input_deg">
-                    <label for="">Product Image</label>
+                    <label for="">Gambar Produk</label>
                     <input type="file" name="image" required>
                 </div>
 
                 <div class="input_deg">
-                    <input type="submit" class="btn custom-btn" value="Add Product">
+                    <input type="submit" class="btn custom-btn" value="Tambahkan">
                 </div>
 
             </form>

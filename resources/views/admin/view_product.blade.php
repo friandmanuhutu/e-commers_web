@@ -77,12 +77,12 @@
             <div class="div_deg">
                 <table class="table_deg">
                     <tr>
-                        <th>Product Title</th>
-                        <th>Description</th>
-                        <th>Category</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Image</th>
+                        <th>Judul Produk</th>
+                        <th>Deskripsi</th>
+                        <th>Kategori</th>
+                        <th>harga</th>
+                        <th>Stok</th>
+                        <th>Gambar</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
