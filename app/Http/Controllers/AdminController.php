@@ -37,7 +37,7 @@ class AdminController extends Controller
             $category->category_name = $request->category;
             $category->save();
 
-            toastr()->timeOut(10000)->closeButton()->addSuccess('Category Added Successfully');
+            toastr()->timeOut(10000)->closeButton()->addSuccess('Kategori Berhasil Ditambahkan');
 
             return redirect()->back();
         }
@@ -48,7 +48,7 @@ class AdminController extends Controller
 
             $data->delete();
 
-            toastr()->timeOut(10000)->closeButton()->addSuccess('Category Deleted Successfully');
+            toastr()->timeOut(10000)->closeButton()->addSuccess('Kategori Berhasil Dihapus');
 
             return redirect()->back();
         }
@@ -64,7 +64,7 @@ class AdminController extends Controller
             $data->category_name= $request->category;
             $data->save();
 
-            toastr()->timeOut(10000)->closeButton()->addSuccess('Category Updated Successfully');
+            toastr()->timeOut(10000)->closeButton()->addSuccess('Kategori Berhasil Diperbarui');
 
             return redirect('/view_category');
         }
@@ -94,7 +94,7 @@ class AdminController extends Controller
 
             $data->save();
 
-            toastr()->timeOut(10000)->closeButton()->addSuccess('Product Added Successfully');
+            toastr()->timeOut(10000)->closeButton()->addSuccess('Produk Berhasil Ditambahkan');
 
             return redirect()->back();
         }
@@ -119,7 +119,7 @@ class AdminController extends Controller
 
 
 
-            toastr()->timeOut(10000)->closeButton()->addSuccess('Product Deleted Successfully');
+            toastr()->timeOut(10000)->closeButton()->addSuccess('Produk Berhasil Dihapus');
 
             return redirect()->back();
         }
@@ -131,6 +131,7 @@ class AdminController extends Controller
             $category = Category::all();
 
             return view('admin.update_product', compact('data','category'));
+
         }
 
         public function edit_product(Request $request, $id){

@@ -41,7 +41,7 @@
         <div class="page-header">
           <div class="container-fluid">
 
-            <h2>Update Product</h2>
+            <h2>Perbarui Produk</h2>
 
             <div class="div_deg">
                 <form action="{{ url('edit_product',$data->id) }}" method="post" enctype="multipart/form-data">
@@ -93,7 +93,7 @@
                     </div>
 
                     <div>
-                        <input class="btn btn-success" type="submit" value="Update Product">
+                        <input class="btn btn-success" type="submit" value="Perbarui">
                     </div>
 
                 </form>

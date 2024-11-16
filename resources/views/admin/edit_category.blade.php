@@ -30,7 +30,7 @@
         <div class="page-header">
           <div class="container-fluid">
 
-            <h1 style="color: #fff">UPDATE CATEGORY</h1>
+            <h1 style="color: #fff; font-size: 35px;">PERBARUI KATEGORI</h1>
 
             <div class="div_deg">
 
@@ -40,7 +40,7 @@
                     @csrf
 
                     <input type="text" name="category" value="{{ $data->category_name }}">
-                    <input class="btn btn-primary" type="submit" value="Update Category">
+                    <input class="btn btn-primary" type="submit" value="Perbarui">
                 </form>
 
             </div>
