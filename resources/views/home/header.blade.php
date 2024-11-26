@@ -27,49 +27,51 @@
               <a class="nav-link" href="{{ url('contact') }}">Contact Us</a>
           </li>
         </ul>
-      
+
         <div class="user_option">
 
-        @if (Route::has('login'))
+            @if (Route::has('login'))
 
-         @auth
+                @auth
+                    <!-- Tambahkan kondisi untuk latar belakang aktif -->
+                    <a href="{{ url('myorders') }}"
+                       class="logged-in {{ Request::is('myorders') ? 'active' : '' }}">
+                        My Orders
+                    </a>
 
-         <a href="{{ url('myorders') }}">
-          My Orders
-        </a>
+                    <a href="{{ url('mycart') }}"
+                       class="logged-in {{ Request::is('mycart') ? 'active' : '' }}">
+                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                        [{{ $count }}]
+                    </a>
 
-          <a href="{{ url('mycart') }}">
-            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-            [{{ $count }}]
-          </a>
+                    <form style="padding: 10px" method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <input class="btn btn-danger" type="submit" value="Logout" id="">
+                    </form>
 
-            <form style="padding: 10px" method="POST" action="{{ route('logout') }}">
-                @csrf
+                @else
 
-                <input class="btn btn-danger" type="submit" value="Logout" id="">
+                    <a href="{{ url('/login') }}">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span>
+                            Login
+                        </span>
+                    </a>
+                    <a href="{{ url('/register') }}">
+                        <i class="fa fa-vcard" aria-hidden="true"></i>
+                        <span>
+                            Register
+                        </span>
+                    </a>
 
-            </form>
+                @endauth
 
-         @else
-
-        <a href="{{ url('/login') }}">
-            <i class="fa fa-user" aria-hidden="true"></i>
-            <span>
-              Login
-            </span>
-          </a>
-          <a href="{{ url('/register') }}">
-            <i class="fa fa-vcard" aria-hidden="true"></i>
-            <span>
-              Register
-            </span>
-          </a>
-
-         @endauth
-
-        @endif
+            @endif
 
         </div>
+
+
       </div>
     </nav>
   </header>
