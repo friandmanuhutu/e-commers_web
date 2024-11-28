@@ -60,9 +60,17 @@ class AdminController extends Controller
         }
         public function update_category(Request $request, $id){
 
-            $data = Category::find($id);
-            $data->category_name= $request->category;
-            $data->save();
+            // Validasi kolom kategori tidak kosong
+            $request->validate([
+                'category' => 'required|string|max:255',
+            ], [
+                'category.required' => 'Kolom kategori harus diisi.',
+            ]);
+
+            // Jika validasi lolos, lanjutkan dengan pembaruan data
+            $category = Category::find($id);
+            $category->category_name = $request->category;
+            $category->save();
 
             toastr()->timeOut(10000)->closeButton()->addSuccess('Kategori Berhasil Diperbarui');
 

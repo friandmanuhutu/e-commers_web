@@ -34,14 +34,32 @@
 
             <div class="div_deg">
 
+            <form action="{{ url('update_category', $data->id )}}" method="post" onsubmit="return checkForm()">
+                @csrf
+                <input type="text" id="category" name="category" value="{{ $data->category_name }}" oninput="checkForm()">
+                <input class="btn btn-primary" type="submit" value="Perbarui" id="submitBtn" disabled>
+            </form>
+            
+            <script>
+                // Fungsi untuk mengecek apakah kolom kategori kosong atau tidak
+                function checkForm() {
+                    var categoryInput = document.getElementById("category").value;
+                    var submitBtn = document.getElementById("submitBtn");
+            
+                    // Jika input kategori kosong, disable tombol submit
+                    if (categoryInput.trim() === "") {
+                        submitBtn.disabled = true;
+                    } else {
+                        submitBtn.disabled = false;
+                    }
+                }
+            
+                // Panggil fungsi untuk pertama kali pada halaman load
+                window.onload = checkForm;
+            </script>
+            
 
-                <form action="{{ url('update_category', $data->id )}}" method="post">
-
-                    @csrf
-
-                    <input type="text" name="category" value="{{ $data->category_name }}">
-                    <input class="btn btn-primary" type="submit" value="Perbarui">
-                </form>
+                
 
             </div>
 

@@ -50,27 +50,27 @@
 
                     <div>
                         <label for="">Title</label>
-                        <input type="text" name="title" value="{{ $data->title }}">
+                        <input type="text" name="title" value="{{ $data->title }}" required>
                     </div>
 
                     <div>
                         <label for="">Description</label>
-                        <textarea name="description" >{{ $data->description }}</textarea>
+                        <textarea name="description" required>{{ $data->description }}</textarea>
                     </div>
 
                     <div>
                         <label for="">Price</label>
-                        <input type="text" name="price" value="{{ $data->price }}">
+                        <input type="number" name="price" value="{{ $data->price }}" required>
                     </div>
 
                     <div>
                         <label for="">Quantity</label>
-                        <input type="number" name="quantity" value="{{ $data->quantity }}">
+                        <input type="number" name="quantity" value="{{ $data->quantity }}" required>
                     </div>
 
                     <div>
                         <label for="">Category</label>
-                        <select name="category">
+                        <select name="category" required>
                             <option value="{{ $data->category }}">{{ $data->category }}</option>
 
                             @foreach ($category as $category)
