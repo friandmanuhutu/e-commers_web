@@ -79,7 +79,7 @@
         }
 
         .div_gap input[type="text"],
-        .div_gap textarea 
+        .div_gap textarea, .div_gap input[type="number"] 
         {
             width: 100%;
             padding: 10px;
@@ -129,6 +129,16 @@
     resize: none;
     height: 80px;
 }
+
+/* Menghilangkan tanda panah pada input type="number" */
+.no-spin::-webkit-outer-spin-button,
+    .no-spin::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    .no-spin[type="number"] {
+        -moz-appearance: textfield;
+    }
 
     </style>
 
@@ -202,18 +212,20 @@
 
             <div class="div_gap">
                 <label>Penerima</label>
-                <input type="text" name="name" value="{{Auth::user()->name}}">
+                <input type="text" name="name" value="{{Auth::user()->name}}" required>
             </div>
 
             <div class="div_gap">
                 <label>Alamat Penerima</label>
-                <textarea name="address">{{Auth::user()->address}}</textarea>
+                <textarea name="address" required>{{Auth::user()->address}}</textarea>
             </div>
 
             <div class="div_gap">
                 <label>Nomer Handphone</label>
-                <input type="text" name="phone" value="{{Auth::user()->phone}}">
+                <input type="number" name="phone" value="{{Auth::user()->phone}}" class="no-spin" required>
             </div>
+
+            
 
             <div class="div_gap">
                 

@@ -16,12 +16,20 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
-            <!-- Phone -->
-            <div>
-                <x-input-label for="phone" :value="__('Phone')" />
-                <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('paddress')" required autofocus autocomplete="phone" />
-                <x-input-error :messages="$errors->get('phone')" class="mt-2" />
-            </div>
+        <!-- Phone -->
+        <div>
+            <x-input-label for="phone" :value="__('Phone')" />
+            <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" />
+            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+        </div>
+
+        <!-- Inline Script -->
+        <script>
+            document.getElementById('phone').addEventListener('input', function (e) {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            });
+        </script>
+
 
             <!-- Address -->
             <div>
@@ -62,4 +70,7 @@
             </x-primary-button>
         </div>
     </form>
+    
 </x-guest-layout>
+
+
