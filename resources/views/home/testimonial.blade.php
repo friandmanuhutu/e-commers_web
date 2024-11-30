@@ -5,6 +5,12 @@
 
     @include('home.css')
 
+    <style>
+        .client_name h5 {
+            color: #3dc2ec;
+        }
+    </style>
+
 </head>
 
 <body>

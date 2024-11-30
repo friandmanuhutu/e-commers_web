@@ -16,7 +16,7 @@
                         Kami adalah platform e-commerce terpercaya yang menyediakan beragam produk pilihan dari kategori terbaik, mulai dari fashion, elektronik, hingga kebutuhan sehari-hari. Dengan komitmen pada kualitas dan kepuasan pelanggan, kami hadir untuk memberikan pengalaman berbelanja yang mudah, aman, dan nyaman.
                     </p>
                     <b>
-                        <a href="">
+                        <a href="/contact">
                             Contact Us
                           </a>
                     </b>

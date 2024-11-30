@@ -56,7 +56,7 @@
             width: 150px;
         }
 
-        .div_gap 
+        .div_gap
         {
             padding: 10px 0;
             display: flex;
@@ -69,7 +69,7 @@
             gap: 10px;
         }
 
-        .div_gap label 
+        .div_gap label
         {
             width: 150px;
             font-weight: bold;
@@ -79,7 +79,7 @@
         }
 
         .div_gap input[type="text"],
-        .div_gap textarea, .div_gap input[type="number"] 
+        .div_gap textarea, .div_gap input[type="number"]
         {
             width: 100%;
             padding: 10px;
@@ -89,7 +89,7 @@
         }
 
 
-        .cart_value h3 
+        .cart_value h3
         {
             text-align: center;
             font-size: 24px;
@@ -140,6 +140,16 @@
         -moz-appearance: textfield;
     }
 
+    .order_deg h5 {
+        text-align: center;
+        margin: 10px -90px -20px 0px;
+        padding: 15px;
+        background-color: #3DC2EC;
+        /* border-radius: 7px; */
+        color: #fff;
+
+    }
+
     </style>
 
 </head>
@@ -149,9 +159,9 @@
     <!-- header section strats -->
     @include('home.header')
     <!-- end header section -->
-    
+
   </div>
-  
+
   <div class="div_deg">
 
 
@@ -204,40 +214,73 @@
 
   </div>
 
-    <div class="order_deg" style="display: flex; justify-content:center; align-items:center; margin-bottom:120px;">
+<div class="order_deg" style="display: flex; justify-content: center; align-items: center; margin-bottom: 120px; width: 100%;">
+    <form action="{{ url('comfirm_order') }}" method="POST" style="width: 100%; max-width: 600px;">
+        @csrf
+        <div>
+            <h5>Biodata Penerima</h5>
+        </div>
+        <table style="width: 115%; border-collapse: collapse; border: 2px solid #3DC2EC; margin-top: 20px;">
+            {{-- <tr style="background-color: #3DC2EC; color: white; text-align: left;">
+                <th style="padding: 10px; border: 1px solid #3DC2EC; width: 30%;">Label</th>
+                <th style="padding: 10px; border: 1px solid #3DC2EC; width: 70%;">Input</th> --}}
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ccc;">Penerima</td>
+                <td style="padding: 10px; border: 1px solid #ccc;">
+                    <input
+                        type="text"
+                        name="name"
+                        value="{{ Auth::user()->name }}"
+                        required
+                        style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;"
+                    >
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ccc;">Alamat Penerima</td>
+                <td style="padding: 10px; border: 1px solid #ccc;">
+                    <textarea
+                        name="address"
+                        required
+                        style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; resize: none; height: 80px;"
+                    >{{ Auth::user()->address }}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ccc;">Nomor Handphone</td>
+                <td style="padding: 10px; border: 1px solid #ccc;">
+                    <input
+                        type="number"
+                        name="phone"
+                        value="{{ Auth::user()->phone }}"
+                        class="no-spin"
+                        required
+                        style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;"
+                    >
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding: 10px; border: 1px solid #ccc; text-align: center;">
+                    <input
+                        class="btn-primary"
+                        type="submit"
+                        value="Cash On Delivery"
+                        style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-right: 10px;"
+                    >
+                    <a
+                        class="btn-success"
+                        href="{{ url('stripe', $value) }}"
+                        style="background-color: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; text-decoration: none;"
+                    >
+                        Debit
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 
-        <form action="{{ url('comfirm_order') }}" method="Post">
-
-            @csrf
-
-            <div class="div_gap">
-                <label>Penerima</label>
-                <input type="text" name="name" value="{{Auth::user()->name}}" required>
-            </div>
-
-            <div class="div_gap">
-                <label>Alamat Penerima</label>
-                <textarea name="address" required>{{Auth::user()->address}}</textarea>
-            </div>
-
-            <div class="div_gap">
-                <label>Nomer Handphone</label>
-                <input type="number" name="phone" value="{{Auth::user()->phone}}" class="no-spin" required>
-            </div>
-
-            
-
-            <div class="div_gap">
-                
-                <input class="btn btn-primary" type="submit" value="Cash On Delivery">
-
-                <a class="btn btn-success" href="{{ url('stripe',$value) }}">Debit</a>
-            </div>
-
-        </form>
-
-    </div>
-  
   <!-- info section -->
     @include('home.footer')
   <!-- end info section -->
