@@ -26,7 +26,7 @@ class ContactController extends Controller
     $contact->save();
 
     // Toastr success notification
-    toastr()->timeOut(10000)->closeButton()->addSuccess('Pesan Anda berhasil dikirim!');
+    toastr()->timeOut(10000)->closeButton()->addSuccess('Pesan Anda Berhasil Dikirim!');
 
     return redirect()->back();
 }
