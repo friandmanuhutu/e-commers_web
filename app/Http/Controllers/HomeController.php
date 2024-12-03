@@ -99,23 +99,36 @@ class HomeController extends Controller
     public function add_cart($id)
     {
         $product_id = $id;
-
         $user = Auth::user();
+
+        if (!$user) {
+            toastr()->timeOut(10000)->closeButton()->addError('Silakan login untuk menambahkan produk ke keranjang.');
+            return redirect()->back();
+        }
 
         $user_id = $user->id;
 
+        // Validasi jika jumlah produk di keranjang sudah melebihi stok
+        $product = Product::find($product_id);
+        $cart_count = Cart::where('user_id', $user_id)
+                        ->where('product_id', $product_id)
+                        ->count();
+
+        if ($cart_count >= $product->quantity) {
+            toastr()->timeOut(10000)->closeButton()->addError('Anda tidak dapat menambahkan lebih banyak produk dari stok tersedia.');
+            return redirect()->back();
+        }
+
+        // Jika validasi lolos, tambahkan produk ke keranjang
         $data = new Cart;
-
         $data->user_id = $user_id;
-
         $data->product_id = $product_id;
-
         $data->save();
 
         toastr()->timeOut(10000)->closeButton()->addSuccess('Produk Berhasil Ditambahkan ke Keranjang');
-
         return redirect()->back();
     }
+
 
     public function mycart()
     {
@@ -148,45 +161,36 @@ class HomeController extends Controller
     public function comfirm_order(Request $request)
     {
         $name = $request->name;
-
         $address = $request->address;
-
         $phone = $request->phone;
 
         $userid = Auth::user()->id;
-
         $cart = Cart::where('user_id', $userid)->get();
 
-        foreach($cart as $carts)
-        {
+        foreach ($cart as $carts) {
             $order = new Order;
-
             $order->name = $name;
-
             $order->rec_address = $address;
-
             $order->phone = $phone;
-
             $order->user_id = $userid;
-
             $order->product_id = $carts->product_id;
-
             $order->save();
+
+            // Kurangi stok produk
+            $product = Product::find($carts->product_id);
+            if ($product->quantity > 0) {
+                $product->quantity -= 1; // atau kurangi sesuai jumlah di keranjang
+                $product->save();
+            }
         }
 
-        $cart_remove = Cart::where('user_id', $userid)->get();
+        // Hapus keranjang pengguna
+        Cart::where('user_id', $userid)->delete();
 
-        foreach($cart_remove as $remove)
-        {
-            $data = Cart::find($remove->id);
-
-            $data->delete();
-        }
-
-        toastr()->timeOut(10000)->closeButton()->addSuccess('Produk Berhasil Dipesan');
-
-        return redirect()->back();   
+        toastr()->timeOut(10000)->closeButton()->addSuccess('Produk berhasil dipesan');
+        return redirect()->back();
     }
+
 
     public function myorders()
     {
