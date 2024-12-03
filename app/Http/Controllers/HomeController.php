@@ -216,7 +216,7 @@ class HomeController extends Controller
 
                 "amount" => $value * 100,
 
-                "currency" => "usd",
+                "currency" => "idr",
 
                 "source" => $request->stripeToken,
 
