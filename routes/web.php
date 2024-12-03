@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\AdminController;
 
+use App\Http\Controllers\ContactController;
+
 route::get('/',[HomeController::class, 'home']);
 
 
@@ -80,6 +82,8 @@ route::get('why',[HomeController::class,'why']);
 route::get('testimonial',[HomeController::class,'testimonial']);
 
 route::get('contact',[HomeController::class,'contact']);
+
+Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::controller(HomeController::class)->group(function(){
 
