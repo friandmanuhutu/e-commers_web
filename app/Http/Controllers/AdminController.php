@@ -25,24 +25,32 @@ class AdminController extends Controller
 
         public function add_category(Request $request)
         {
-            // Tambahkan validasi untuk memastikan kolom kategori tidak kosong
-            $request->validate([
-                'category' => 'required|string|max:255',
-            ], [
-                'category.required' => 'Kolom kategori harus diisi.',
-            ]);
+            try {
+                // Validasi untuk memastikan kolom kategori tidak kosong dan unik
+                $request->validate([
+                    'category' => 'required|string|max:255|unique:categories,category_name',
+                ], [
+                    'category.unique' => 'Kategori ini sudah ada, silakan masukkan nama kategori yang berbeda.',
+                ]);
 
-            // Jika validasi lolos, lanjutkan dengan penyimpanan data
-            $category = new Category;
-            $category->category_name = $request->category;
-            $category->save();
+                // Jika validasi lolos, lanjutkan dengan penyimpanan data
+                $category = new Category;
+                $category->category_name = $request->category;
+                $category->save();
 
-            toastr()->timeOut(10000)->closeButton()->addSuccess('Kategori Berhasil Ditambahkan');
+                // Menampilkan notifikasi sukses
+                toastr()->timeOut(10000)->closeButton()->addSuccess('Kategori Berhasil Ditambahkan');
 
-            return redirect()->back();
+                return redirect()->back();
+
+            } catch (\Illuminate\Validation\ValidationException $e) {
+                // Tangkap error validasi dan tampilkan dengan Toastr
+                toastr()->timeOut(10000)->closeButton()->addError($e->validator->errors()->first());
+                return redirect()->back()->withInput();
+            }
         }
 
-
+        
         public function delete_category($id){
             $data = Category::find($id);
 
@@ -58,24 +66,34 @@ class AdminController extends Controller
             $data = Category::find($id);
             return view('admin.edit_category', compact('data'));
         }
-        public function update_category(Request $request, $id){
+        
+        public function update_category(Request $request, $id)
+        {
+            try {
+                // Validasi kolom kategori tidak kosong dan unik, kecuali kategori yang sedang diedit
+                $request->validate([
+                    'category' => 'required|string|max:255|unique:categories,category_name,' . $id,
+                ], [
+                    'category.unique' => 'Kategori ini sudah ada, silakan masukkan nama kategori yang berbeda.',
+                ]);
 
-            // Validasi kolom kategori tidak kosong
-            $request->validate([
-                'category' => 'required|string|max:255',
-            ], [
-                'category.required' => 'Kolom kategori harus diisi.',
-            ]);
+                // Jika validasi lolos, lanjutkan dengan pembaruan data
+                $category = Category::find($id);
+                $category->category_name = $request->category;
+                $category->save();
 
-            // Jika validasi lolos, lanjutkan dengan pembaruan data
-            $category = Category::find($id);
-            $category->category_name = $request->category;
-            $category->save();
+                // Menampilkan notifikasi sukses
+                toastr()->timeOut(10000)->closeButton()->addSuccess('Kategori Berhasil Diperbarui');
+                return redirect('/view_category');
 
-            toastr()->timeOut(10000)->closeButton()->addSuccess('Kategori Berhasil Diperbarui');
-
-            return redirect('/view_category');
+            } catch (\Illuminate\Validation\ValidationException $e) {
+                // Tangkap error validasi dan tampilkan dengan Toastr
+                toastr()->timeOut(10000)->closeButton()->addError($e->validator->errors()->first());
+                return redirect()->back()->withInput();
+            }
         }
+
+
 
         public function add_product(){
 
@@ -84,28 +102,46 @@ class AdminController extends Controller
             return view('admin.add_product', compact('category'));
         }
 
-        public function upload_product(Request $request){
-            $data = new Product;
-            $data->title = $request->title;
-            $data->description = $request->description;
-            $data->price = $request->price;
-            $data->quantity = $request->qty;
-            $data->category= $request->category;
-
-
-            if ($request->hasFile('image')) {
-                $image = $request->file('image');
-                $imageName = time() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('products'), $imageName);
-                $data->image = $imageName;
+        public function upload_product(Request $request)
+        {
+            try {
+                // Validasi input dengan pesan error khusus
+                $request->validate([
+                    'title' => 'required|unique:products,title', // Pastikan 'title' unik
+                ], [
+                    'title.unique' => 'Judul produk sudah ada, silakan gunakan judul lain.',
+                ]);
+        
+                // Membuat instance baru
+                $data = new Product;
+                $data->title = $request->title;
+                $data->description = $request->description;
+                $data->price = $request->price;
+                $data->quantity = $request->qty;
+                $data->category = $request->category;
+        
+                // Upload file gambar jika ada
+                if ($request->hasFile('image')) {
+                    $image = $request->file('image');
+                    $imageName = time() . '.' . $image->getClientOriginalExtension();
+                    $image->move(public_path('products'), $imageName);
+                    $data->image = $imageName;
+                }
+        
+                // Simpan data ke database
+                $data->save();
+        
+                // Menampilkan notifikasi sukses
+                toastr()->timeOut(10000)->closeButton()->addSuccess('Produk Berhasil Ditambahkan');
+        
+                return redirect()->back();
+            } catch (\Illuminate\Validation\ValidationException $e) {
+                // Tangkap error validasi dan tampilkan dengan Toastr
+                toastr()->timeOut(10000)->closeButton()->addError($e->validator->errors()->first());
+                return redirect()->back()->withInput();
             }
-
-            $data->save();
-
-            toastr()->timeOut(10000)->closeButton()->addSuccess('Produk Berhasil Ditambahkan');
-
-            return redirect()->back();
         }
+        
 
         public function view_product(){
 
@@ -142,8 +178,24 @@ class AdminController extends Controller
 
         }
 
-        public function edit_product(Request $request, $id){
+        public function edit_product(Request $request, $id)
+        {
+            // Validasi untuk memastikan judul produk tidak duplikat kecuali produk yang sedang diedit
+            $validator = \Validator::make($request->all(), [
+                'title' => 'required|string|max:255|unique:products,title,' . $id,
 
+            ], [
+                'title.unique' => 'Produk dengan judul ini sudah ada, silakan pilih nama produk lain.',
+            ]);
+
+            // Cek apakah validasi gagal
+            if ($validator->fails()) {
+                // Mengirimkan error dan kembali ke halaman sebelumnya
+                toastr()->timeOut(10000)->closeButton()->addError($validator->errors()->first());
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+
+            // Jika validasi lolos, lanjutkan dengan pembaruan data
             $data = Product::find($id);
 
             $data->title = $request->title;
@@ -154,17 +206,19 @@ class AdminController extends Controller
 
             $image = $request->image;
 
-            if($image){
-                $imagename = time().'.'.$image->getClientOriginalExtension();
+            if ($image) {
+                $imagename = time() . '.' . $image->getClientOriginalExtension();
                 $request->image->move('products', $imagename);
                 $data->image = $imagename;
             }
 
             $data->save();
 
-            return redirect('/view_product');
+            toastr()->timeOut(10000)->closeButton()->addSuccess('Produk Berhasil Diperbarui');
 
+            return redirect('/view_product');
         }
+
 
         public function product_search(Request $request){
 

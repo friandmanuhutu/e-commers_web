@@ -218,7 +218,7 @@
     <form action="{{ url('comfirm_order') }}" method="POST" style="width: 100%; max-width: 600px;">
         @csrf
         <div>
-            <h5>Biodata Penerima</h5>
+            <h5>Informasi & Ketentuan Pembelian</h5>
         </div>
         <table style="width: 115%; border-collapse: collapse; border: 2px solid #3DC2EC; margin-top: 20px;">
             {{-- <tr style="background-color: #3DC2EC; color: white; text-align: left;">
