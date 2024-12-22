@@ -96,38 +96,55 @@ class HomeController extends Controller
         return view('home.product_details',compact('data','count'));
     }
 
-    public function add_cart($id)
-    {
-        $product_id = $id;
-        $user = Auth::user();
+    public function add_cart($id, Request $request)
+{
+    $product_id = $id;
+    $quantity = $request->quantity; // Ambil jumlah produk dari form
+    $user = Auth::user();
 
-        if (!$user) {
-            toastr()->timeOut(10000)->closeButton()->addError('Silakan login untuk menambahkan produk ke keranjang.');
-            return redirect()->back();
-        }
+    if (!$user) {
+        toastr()->timeOut(10000)->closeButton()->addError('Silakan login untuk menambahkan produk ke keranjang.');
+        return redirect()->back();
+    }
 
-        $user_id = $user->id;
+    $user_id = $user->id;
 
-        // Validasi jika jumlah produk di keranjang sudah melebihi stok
-        $product = Product::find($product_id);
-        $cart_count = Cart::where('user_id', $user_id)
-                        ->where('product_id', $product_id)
-                        ->count();
+    // Validasi jika jumlah produk yang dimasukkan lebih dari stok yang tersedia
+    $product = Product::find($product_id);
 
-        if ($cart_count >= $product->quantity) {
-            toastr()->timeOut(10000)->closeButton()->addError('Anda tidak dapat menambahkan lebih banyak produk dari stok tersedia.');
-            return redirect()->back();
-        }
+    if (!$product) {
+        toastr()->timeOut(10000)->closeButton()->addError('Produk tidak ditemukan.');
+        return redirect()->back();
+    }
 
-        // Jika validasi lolos, tambahkan produk ke keranjang
+    // Pastikan jumlah yang dimasukkan valid (lebih besar dari 0 dan tidak melebihi stok)
+    if ($quantity <= 0 || $quantity > $product->quantity) {
+        toastr()->timeOut(10000)->closeButton()->addError('Jumlah yang dimasukkan tidak valid.');
+        return redirect()->back();
+    }
+
+    // Cek jika produk sudah ada di keranjang untuk user ini
+    $cart_count = Cart::where('user_id', $user_id)
+                      ->where('product_id', $product_id)
+                      ->count();
+
+    if ($cart_count + $quantity > $product->quantity) {
+        toastr()->timeOut(10000)->closeButton()->addError('Anda tidak dapat menambahkan lebih banyak produk dari stok tersedia.');
+        return redirect()->back();
+    }
+
+    // Jika validasi lolos, tambahkan produk ke keranjang
+    for ($i = 0; $i < $quantity; $i++) {
         $data = new Cart;
         $data->user_id = $user_id;
         $data->product_id = $product_id;
         $data->save();
-
-        toastr()->timeOut(10000)->closeButton()->addSuccess('Produk Berhasil Ditambahkan ke Keranjang');
-        return redirect()->back();
     }
+
+    toastr()->timeOut(10000)->closeButton()->addSuccess('Produk Berhasil Ditambahkan ke Keranjang');
+    return redirect()->back();
+}
+
 
 
     public function mycart()

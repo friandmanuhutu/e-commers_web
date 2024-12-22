@@ -263,18 +263,24 @@
             <tr>
                 <td colspan="2" style="padding: 10px; border: 1px solid #ccc; text-align: center;">
                     <input
-                        class="btn-primary"
-                        type="submit"
-                        value="Cash On Delivery"
-                        style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-right: 10px;"
+                    class="btn-primary"
+                    type="submit"
+                    value="Cash On Delivery"
+                    style="background-color: #3dc2ec; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-right: 10px;"
+                    onmouseover="this.style.backgroundColor='#777777'"
+                    onmouseout="this.style.backgroundColor='#3dc2ec'"
                     >
+
                     <a
-                        class="btn-success"
-                        href="{{ url('stripe', $value) }}"
-                        style="background-color: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; text-decoration: none;"
+                    class="btn-success"
+                    href="{{ url('stripe', $value) }}"
+                    style="background-color: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; text-decoration: none;"
+                    onmouseover="this.style.backgroundColor='#218838'"
+                    onmouseout="this.style.backgroundColor='#28a745'"
                     >
                         Debit
                     </a>
+
                 </td>
             </tr>
         </table>
