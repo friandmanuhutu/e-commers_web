@@ -31,7 +31,7 @@
 
             textarea {
                 width: 450px;
-                height: 80px;
+                height: 200px;
             }
 
             .input_deg {

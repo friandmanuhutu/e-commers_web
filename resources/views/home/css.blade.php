@@ -7,10 +7,10 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="images/E-AS.png" type="image/x-icon">
 
 <title>
-  E-Commerce
+  Electronic AllStore
 </title>
 
 <!-- slider stylesheet -->

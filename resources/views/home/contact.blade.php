@@ -7,7 +7,11 @@
 
     <style>
       /* CSS untuk halaman Contact */
-      
+      a:hover 
+        {
+            background-color: #ffffff18;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
 
       .contact_section {
           padding: 50px 0;

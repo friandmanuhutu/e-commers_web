@@ -9,6 +9,13 @@
         .client_name h5 {
             color: #3dc2ec;
         }
+
+        a:hover 
+        {
+          background-color: #ffffff18;
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
     </style>
 
 </head>

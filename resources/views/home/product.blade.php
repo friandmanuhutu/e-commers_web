@@ -1,7 +1,7 @@
 <section class="shop_section layout_padding">
     <div class="container">
         <div class="heading_container heading_center">
-            <h2>Produk Terbaru</h2>
+            <h2>Daftar Produk</h2>
         </div>
         <div class="row">
             @foreach($product as $products)
