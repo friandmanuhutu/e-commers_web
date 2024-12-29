@@ -21,21 +21,21 @@
 
         .back-btn {
             position: absolute;
-            top: 150px; /* Sesuaikan jarak dari slider */
+            top: 170px; /* Sesuaikan jarak dari slider */
             left: 50px; /* Margin kiri */
-            font-size: 24px; /* Ukuran ikon */
+            font-size: 20px; /* Ukuran ikon */
             color: #333; /* Warna ikon */
             background-color: rgba(255, 255, 255, 0.7); /* Latar belakang transparan */
             padding: 10px;
             border-radius: 50%;
             text-decoration: none;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Efek bayangan */
             z-index: 1000; /* Pastikan berada di atas elemen lainnya */
             transition: transform 0.2s ease;
         }
 
         .back-btn:hover {
-            transform: scale(1.1); /* Efek zoom saat hover */
+            transform: scale(1.05); /* Efek zoom saat hover */
         }
 
         a:hover 

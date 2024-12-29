@@ -34,9 +34,9 @@ class HomeController extends Controller
         return view('admin.index',compact('user','product','order','deliverd'));
     }
 
-    public function home(){
-        // Ambil hanya 8 produk pertama
-        $product = Product::take(8)->get();
+    public function home() {
+        // Ambil hanya 8 produk terbaru
+        $product = Product::orderBy('created_at', 'desc')->take(8)->get();
     
         if(Auth::id()) {
             $user = Auth::user();
@@ -48,6 +48,7 @@ class HomeController extends Controller
     
         return view('home.index', compact('product', 'count'));
     }
+    
     
 
     public function login_home()
@@ -222,83 +223,72 @@ class HomeController extends Controller
     }
 
     public function stripePost(Request $request, $value)
-
     {
-
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
-    
-
-        Stripe\Charge::create ([
-
-                "amount" => $value * 100,
-
-                "currency" => "idr",
-
-                "source" => $request->stripeToken,
-
-                "description" => "Test payment from complete" 
-
+        // Lakukan pembayaran Stripe
+        Stripe\Charge::create([
+            "amount" => $value * 100,  // mengalikan dengan 100 karena Stripe menerima jumlah dalam satuan sen
+            "currency" => "idr",
+            "source" => $request->stripeToken,
+            "description" => "Test payment from complete"
         ]);
 
-      
-
+        // Ambil informasi pengguna yang sedang login
         $name = Auth::user()->name;
-
         $phone = Auth::user()->phone;
-
         $address = Auth::user()->address;
-
         $userid = Auth::user()->id;
 
+        // Ambil data keranjang pengguna
         $cart = Cart::where('user_id', $userid)->get();
 
-        foreach($cart as $carts)
-        {
+        // Proses setiap produk dalam keranjang
+        foreach ($cart as $carts) {
+            // Buat order baru
             $order = new Order;
-
             $order->name = $name;
-
             $order->rec_address = $address;
-
             $order->phone = $phone;
-
             $order->user_id = $userid;
-
-            $order->payment_status = 'Terbayar';
-
+            $order->payment_status = 'Terbayar';  // Status pembayaran
             $order->product_id = $carts->product_id;
-
             $order->save();
+
+            // Kurangi stok produk yang dipesan
+            $product = Product::find($carts->product_id);
+            if ($product) {
+                // Kurangi stok produk sesuai jumlah yang dipesan di keranjang
+                $product->quantity -= 1;
+                $product->save();
+            }
         }
 
+        // Hapus produk di keranjang setelah pembayaran berhasil
         $cart_remove = Cart::where('user_id', $userid)->get();
-
-        foreach($cart_remove as $remove)
-        {
+        foreach ($cart_remove as $remove) {
             $data = Cart::find($remove->id);
-
             $data->delete();
         }
 
         toastr()->timeOut(10000)->closeButton()->addSuccess('Produk Berhasil Dipesan');
-
         return redirect('mycart');
-
     }
 
-    public function shop(Request $request)
-    {
-        $search = $request->input('search'); // Ambil input pencarian
 
+    public function shop(Request $request) {
+        $search = $request->input('search');
+    
         if ($search) {
-            // Jika ada pencarian, filter produk berdasarkan nama
-            $product = Product::where('title', 'like', '%' . $search . '%')->get();
+            // Jika ada pencarian, filter produk berdasarkan nama dan urutkan terbaru
+            $product = Product::where('title', 'like', '%' . $search . '%')
+                              ->orderBy('created_at', 'desc')
+                              ->get();
         } else {
-            // Jika tidak ada pencarian, tampilkan semua produk
-            $product = Product::all();
+            // Jika tidak ada pencarian, tampilkan semua produk dengan urutan terbaru
+            $product = Product::orderBy('created_at', 'desc')->get();
         }
-
+    
         if(Auth::id()) {
             $user = Auth::user();
             $userid = $user->id;
@@ -306,9 +296,10 @@ class HomeController extends Controller
         } else {
             $count = '';
         }
-
+    
         return view('home.shop', compact('product', 'count'));
     }
+    
 
 
     public function why(){
