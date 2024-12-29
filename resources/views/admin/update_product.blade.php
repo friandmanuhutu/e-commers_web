@@ -93,8 +93,9 @@
                     </div>
 
                     <div>
-                        <input class="btn btn-success" type="submit" value="Perbarui">
+                        <input class="btn btn-success" type="submit" value="Perbarui" style="margin-left: 210px;">
                     </div>
+                    
 
                 </form>
 

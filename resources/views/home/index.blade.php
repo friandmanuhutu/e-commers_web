@@ -18,6 +18,9 @@
   </div>
   <!-- end hero area -->
   <!-- shop section -->
+<div class="heading_container heading_center" style="margin-top: 70px">
+    <h2>Produk Terbaru</h2>
+</div>
     @include('home.product')
   <!-- end shop section -->
 

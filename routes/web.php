@@ -99,3 +99,7 @@ route::get('delivered/{id}',[AdminController::class,'delivered'])->middleware(['
 
 route::get('print_pdf/{id}',[AdminController::class,'print_pdf'])->middleware(['auth', 'admin']);
 
+// Tambahkan route untuk pencarian produk
+Route::get('search_products', [HomeController::class, 'search_products']);
+
+

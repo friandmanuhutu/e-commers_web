@@ -35,24 +35,20 @@ class HomeController extends Controller
     }
 
     public function home(){
-        $product = Product::all();
-
-        if(Auth::id())
-        {
+        // Ambil hanya 8 produk pertama
+        $product = Product::take(8)->get();
+    
+        if(Auth::id()) {
             $user = Auth::user();
-
             $userid = $user->id;
-
-            $count = Cart::where('user_id',$userid)->count();
-        }
-
-        else
-        {
+            $count = Cart::where('user_id', $userid)->count();
+        } else {
             $count = '';
         }
-
-        return view('home.index',compact('product','count'));
+    
+        return view('home.index', compact('product', 'count'));
     }
+    
 
     public function login_home()
     {
@@ -291,25 +287,29 @@ class HomeController extends Controller
 
     }
 
-    public function shop(){
-        $product = Product::all();
+    public function shop(Request $request)
+    {
+        $search = $request->input('search'); // Ambil input pencarian
 
-        if(Auth::id())
-        {
-            $user = Auth::user();
-
-            $userid = $user->id;
-
-            $count = Cart::where('user_id',$userid)->count();
+        if ($search) {
+            // Jika ada pencarian, filter produk berdasarkan nama
+            $product = Product::where('title', 'like', '%' . $search . '%')->get();
+        } else {
+            // Jika tidak ada pencarian, tampilkan semua produk
+            $product = Product::all();
         }
 
-        else
-        {
+        if(Auth::id()) {
+            $user = Auth::user();
+            $userid = $user->id;
+            $count = Cart::where('user_id', $userid)->count();
+        } else {
             $count = '';
         }
 
-        return view('home.shop',compact('product','count'));
+        return view('home.shop', compact('product', 'count'));
     }
+
 
     public function why(){
        
@@ -370,5 +370,28 @@ class HomeController extends Controller
 
         return view('home.contact',compact('count'));
     }
+    
+    public function search_products(Request $request)
+    {
+        $search = $request->input('search');  // Ambil input pencarian
+
+        // Cari produk berdasarkan judul atau deskripsi
+        $products = Product::where('title', 'like', '%' . $search . '%')
+                            ->orWhere('description', 'like', '%' . $search . '%')
+                            ->get();
+
+        // Hitung jumlah item di keranjang
+        if (Auth::id()) {
+            $user = Auth::user();
+            $userId = $user->id;
+            $count = Cart::where('user_id', $userId)->count();
+        } else {
+            $count = '';
+        }
+
+        // Kembalikan tampilan dengan produk yang ditemukan
+        return view('home.shop', compact('products', 'count'));
+    }
+
 
 }
