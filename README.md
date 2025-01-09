@@ -3,6 +3,17 @@
 2. npm run dev
 3. php artisan serve
 
+## Persiapan Penggunaan
+
+### Admin
+1. Registrasi
+2. Ubah role di database pada tabel user, dari role user menjadi admin
+3. Login
+
+### User
+1. Registrasi
+2. Login
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
