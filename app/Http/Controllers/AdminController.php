@@ -41,12 +41,12 @@ class AdminController extends Controller
                 // Menampilkan notifikasi sukses
                 toastr()->timeOut(10000)->closeButton()->addSuccess('Kategori Berhasil Ditambahkan');
 
-                return redirect()->back();
+                return redirect('/view_category');
 
             } catch (\Illuminate\Validation\ValidationException $e) {
                 // Tangkap error validasi dan tampilkan dengan Toastr
                 toastr()->timeOut(10000)->closeButton()->addError($e->validator->errors()->first());
-                return redirect()->back()->withInput();
+                return redirect('/view_category')->withInput();
             }
         }
 
